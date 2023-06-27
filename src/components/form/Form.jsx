@@ -83,16 +83,6 @@ export const Form = () => {
           />
         </label>
 
-        {/* <select name="year[]" required>
-          <option disabled>Выберите героя</option>
-          <option value="Чебурашка">Чебурашка</option>
-          <option selected value="Крокодил Гена">
-            Крокодил Гена
-          </option>
-          <option value="Шапокляк">Шапокляк</option>
-          <option value="Крыса Лариса">Крыса Лариса</option>
-        </select> */}
-
         <button type="submit">Add Contact</button>
       </div>
 
