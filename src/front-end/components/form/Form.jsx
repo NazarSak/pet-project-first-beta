@@ -3,7 +3,10 @@ import React from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'front-end/redux/contacts.js/contactSlice';
+import {
+  addContact,
+  removeContact,
+} from 'front-end/redux/contacts.js/contactSlice';
 import { nanoid } from 'nanoid';
 
 export const Form = () => {
@@ -87,11 +90,14 @@ export const Form = () => {
       </div>
 
       {user &&
-        user.map(item => {
+        user.map(({ id, name, number }) => {
           return (
-            <li key={item.id}>
-              <h2>{item.name}</h2>
-              <h3>{item.number}</h3>
+            <li key={id}>
+              <h2>{name}</h2>
+              <h3>{number}</h3>
+              <button onClick={() => dispatch(removeContact(id))}>
+                Delete contact
+              </button>
             </li>
           );
         })}
