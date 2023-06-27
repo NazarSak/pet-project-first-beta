@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAPI } from 'services/getRequest';
+import { getAPI } from 'front-end/services/getRequest';
 import { useEffect, useState } from 'react';
 
 export const Workpage = () => {
