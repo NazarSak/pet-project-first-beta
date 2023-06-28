@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts.js/contactSlice';
 import { nanoid } from 'nanoid';
 
+import './Form.css'
+
 export const Form = () => {
   const user = useSelector(state => state.contacts.contacts);
   const dispatch = useDispatch();
@@ -54,7 +56,7 @@ export const Form = () => {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor={inputId}>
-          Name
+          Name:
           <input
             type="text"
             value={name}
@@ -64,12 +66,12 @@ export const Form = () => {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
             id={inputId}
-            placeholder="Name pleasfsdfds"
+            placeholder="Name please"
           />
         </label>
 
         <label htmlFor={inputSecId}>
-          Number
+          Number:
           <input
             type="tel"
             value={number}
@@ -85,7 +87,7 @@ export const Form = () => {
 
         {/* <select name="year[]" required>
           <option disabled>Выберите героя</option>
-          <option value="Чебурашка">Чебурашка</option>
+          <option value="luv me = Чебурашка">Чебурашка</option>
           <option selected value="Крокодил Гена">
             Крокодил Гена
           </option>
@@ -99,7 +101,7 @@ export const Form = () => {
       {user &&
         user.map(item => {
           return (
-            <li key={item.id}>
+            <li className='user' key={item.id}>
               <h2>{item.name}</h2>
               <h3>{item.number}</h3>
             </li>
