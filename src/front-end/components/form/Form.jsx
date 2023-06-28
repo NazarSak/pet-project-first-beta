@@ -3,11 +3,10 @@ import React from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import {
-  addContact,
-  removeContact,
-} from 'front-end/redux/contacts.js/contactSlice';
+import { addContact } from 'front-end/redux/contacts.js/contactSlice';
 import { nanoid } from 'nanoid';
+
+import './Form.css'
 
 export const Form = () => {
   const user = useSelector(state => state.contacts.contacts);
@@ -57,7 +56,7 @@ export const Form = () => {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor={inputId}>
-          Name
+          Name:
           <input
             type="text"
             value={name}
@@ -67,12 +66,12 @@ export const Form = () => {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
             id={inputId}
-            placeholder="Name pleasfsdfds"
+            placeholder="Name please"
           />
         </label>
 
         <label htmlFor={inputSecId}>
-          Number
+          Number:
           <input
             type="tel"
             value={number}
@@ -86,18 +85,25 @@ export const Form = () => {
           />
         </label>
 
+        {/* <select name="year[]" required>
+          <option disabled>Выберите героя</option>
+          <option value="luv me = Чебурашка">Чебурашка</option>
+          <option selected value="Крокодил Гена">
+            Крокодил Гена
+          </option>
+          <option value="Шапокляк">Шапокляк</option>
+          <option value="Крыса Лариса">Крыса Лариса</option>
+        </select> */}
+
         <button type="submit">Add Contact</button>
       </div>
 
       {user &&
-        user.map(({ id, name, number }) => {
+        user.map(item => {
           return (
-            <li key={id}>
-              <h2>{name}</h2>
-              <h3>{number}</h3>
-              <button onClick={() => dispatch(removeContact(id))}>
-                Delete contact
-              </button>
+            <li className='user' key={item.id}>
+              <h2>{item.name}</h2>
+              <h3>{item.number}</h3>
             </li>
           );
         })}

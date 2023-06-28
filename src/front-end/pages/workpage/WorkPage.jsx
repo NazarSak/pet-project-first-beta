@@ -1,6 +1,7 @@
 import React from 'react';
 import { getAPI } from 'front-end/services/getRequest';
 import { useEffect, useState } from 'react';
+import './WorkPage.css'
 
 export const Workpage = () => {
   const [infa, setInfa] = useState([]);
