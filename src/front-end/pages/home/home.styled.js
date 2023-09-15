@@ -2,10 +2,6 @@ import styled from 'styled-components';
 import backgroundSvg from '../../../assets/svgImage/Rectangle.png';
 
 export const Title = styled.h2`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   color: #fff;
   font-family: Roboto;
   font-size: 64px;
@@ -15,12 +11,45 @@ export const Title = styled.h2`
 `;
 
 export const Container = styled.div`
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: #383847;
-  position: relative;
-  overflow: hidden;
+`;
+
+export const ToRegister = styled.button`
+  color: #1f1f27;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
+  padding: 15px 24px;
+  border-radius: 16px;
+  background: #f5f6fb;
+  box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+`;
+
+export const ToLogin = styled.button`
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
+  border-radius: 16px;
+  background: var(--button, #42a652);
+  box-shadow: 1px 3px 5px 0px rgba(96, 196, 112, 0.35);
+  padding: 15px 48px;
+  border: none;
+`;
+
+export const ContainerButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 16px;
 `;
 
 export const ContainerImage = styled.div`
@@ -34,6 +63,4 @@ export const ContainerImage = styled.div`
   /* height: 1330.115px;
   transform: rotate(-15deg); */
   /* flex-shrink: 0; */
-
 `;
-

@@ -4,7 +4,7 @@ import { Header } from '../header/Header';
 
 export const Layout = () => {
   return (
-    <nav>
+    <>
       <Header/>
 {/* <NavLink to="/register" >Registration </NavLink> */}
 
@@ -21,7 +21,7 @@ export const Layout = () => {
       </NavLink> */}
 
       <Outlet />
-    </nav>
+    </>
   );
 };
 
