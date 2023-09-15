@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Title,
   Container,
-  ContainerImage,
+
   ToRegister,
   ContainerButtons,
   ToLogin,
@@ -12,7 +12,7 @@ import {
 export const Home = () => {
   return (
     <Container>
-      {/* <ContainerImage /> */}
+
       <Title>Welcome to Budget Boss </Title>
       <ContainerButtons>
         <Link to="login">
