@@ -14,6 +14,7 @@ const contactsSlice = createSlice({
     addContact(state, action) {
         state.contacts = [...state.contacts, action.payload]
     },
+    
   },
 });
   

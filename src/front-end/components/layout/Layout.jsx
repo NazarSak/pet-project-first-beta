@@ -1,43 +1,28 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import './Layout.css'
+import { Header } from '../header/Header';
+
 
 export const Layout = () => {
   return (
     <nav>
-      <NavLink to="/" style={({ isActive }) => ({ className: isActive ? 'active-btn' : '' })}>
-        HomePage
-      </NavLink>
+      <Header/>
+{/* <NavLink to="/register" >Registration </NavLink> */}
 
-      <NavLink to="/workPage" style={({ isActive }) => ({ className: isActive ? 'active-btn' : '' })}>
+      {/* <NavLink to="/" style={({ isActive }) => ({ className: isActive ? 'active-btn' : '' })}>
+        HomePage
+      </NavLink> */}
+
+      {/* <NavLink to="/workPage" style={({ isActive }) => ({ className: isActive ? 'active-btn' : '' })}>
         Workpage
       </NavLink>
 
       <NavLink to="/contactPage" style={({ isActive }) => ({ className: isActive ? 'active-btn' : '' })}>
         ContactPage
-      </NavLink>
+      </NavLink> */}
 
       <Outlet />
     </nav>
   );
 };
 
-// export const Layout = () => {
-//   return (
-//     <nav>
-//       <NavLink to="/">
-//         <button>HomePage</button>
-//       </NavLink>
-
-//       <NavLink to="/workPage" >
-//         <button>Workpage</button>
-//       </NavLink>
-
-//       <NavLink to="/contactPage">
-//         <button>ContactPage</button>
-//       </NavLink>
-
-//       <Outlet />
-//     </nav>
-//   );
-// };
 
