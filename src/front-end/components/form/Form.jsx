@@ -13,7 +13,7 @@ import {
 import { ToLogin } from 'front-end/pages/home/home.styled';
 import googleLogo from '../../../assets/svgImage/google.svg';
 
-export const SharedForm = ({
+export const Form = ({
   initialValues,
   validationSchema,
   handleSubmit,
