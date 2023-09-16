@@ -3,6 +3,7 @@ import { Container, Wrapper } from './login.styled';
 import wallet from '../../../assets/svgImage/wallet.png';
 import { Form } from 'front-end/components/Form/Form';
 
+
 export const Login = () => {
   return (
     <Container>
