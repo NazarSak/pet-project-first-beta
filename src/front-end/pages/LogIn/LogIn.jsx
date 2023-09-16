@@ -1,10 +1,16 @@
 import React from 'react';
-import { Container } from '../home/home.styled';
+import { Container, Wrapper } from './login.styled';
+// import { ToLogin } from '../home/home.styled';
+import wallet from '../../../assets/svgImage/wallet.png';
+import { SharedForm } from 'front-end/components/Form/form';
 
 export const Login = () => {
   return (
     <Container>
-      <h2>This is Login Page</h2>
+      <Wrapper>
+        <img src={wallet} alt="Wallet" width="675" height="545" />
+      </Wrapper>
+      <SharedForm />
     </Container>
   );
 };

@@ -31,6 +31,7 @@ export const ToRegister = styled.button`
   background: #f5f6fb;
   box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.25);
   border: none;
+  cursor: pointer;
 `;
 
 export const ToLogin = styled.button`
@@ -44,6 +45,7 @@ export const ToLogin = styled.button`
   box-shadow: 1px 3px 5px 0px rgba(96, 196, 112, 0.35);
   padding: 15px 48px;
   border: none;
+  cursor: pointer;
 `;
 
 export const ContainerButtons = styled.div`
