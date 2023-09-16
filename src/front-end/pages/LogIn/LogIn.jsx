@@ -9,7 +9,7 @@ export const Login = () => {
       <Wrapper>
         <img src={wallet} alt="Wallet" width="675" height="545" />
       </Wrapper>
-      <Form />
+      <Form/>
     </Container>
   );
 };
