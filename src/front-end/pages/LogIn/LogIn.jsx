@@ -11,6 +11,6 @@ export const Login = () => {
         <img src={wallet} alt="Wallet" width="675" height="545" />
       </Wrapper>
       <Form/>
-    </Container>
+    </Container> 
   );
 };
