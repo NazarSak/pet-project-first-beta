@@ -13,22 +13,21 @@ import {
 import { ToLogin } from 'front-end/pages/home/home.styled';
 import googleLogo from '../../../assets/svgImage/google.svg';
 
-export const Form = ({
-  initialValues,
-  validationSchema,
-  handleSubmit,
-}) => {
+const Form = ({ initialValues, validationSchema, handleSubmit }) => {
   return (
     <div>
       <div>
         <Formik
           initialValues={initialValues}
+          
           onSubmit={handleSubmit}
           validationSchema={validationSchema}
         >
           {({ isSubmitting }) => (
             <StyledForm>
-              <BeforeGoogleParagraph>You can log in with your Google Account:</BeforeGoogleParagraph>
+              <BeforeGoogleParagraph>
+                You can log in with your Google Account:
+              </BeforeGoogleParagraph>
               <ToGoogle type="submit">
                 <Span>
                   <img src={googleLogo} alt="Logo" width="17" height="18" />
@@ -73,3 +72,5 @@ export const Form = ({
     </div>
   );
 };
+
+export default Form;
