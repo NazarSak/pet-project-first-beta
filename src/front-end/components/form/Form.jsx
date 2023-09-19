@@ -18,12 +18,13 @@ const Form = ({ initialValues, validationSchema, handleSubmit }) => {
     <div>
       <div>
         <Formik
-          initialValues={initialValues}
-          
+          initialValues={{ username: '', password: '' }}
+          validate={values => {
+            const errors = {};
+            return errors;
+          }}
           onSubmit={handleSubmit}
-          validationSchema={validationSchema}
-        >
-          {({ isSubmitting }) => (
+        >          
             <StyledForm>
               <BeforeGoogleParagraph>
                 You can log in with your Google Account:
@@ -39,7 +40,7 @@ const Form = ({ initialValues, validationSchema, handleSubmit }) => {
                 Or log in using an email and password, after registering:
               </UnderGoogleParagraph>
               <List>
-              <li>
+                <li>
                   <div>
                     <ErrorMessage name="name">asdasd</ErrorMessage>
                     <Label>Name:</Label>
@@ -48,18 +49,6 @@ const Form = ({ initialValues, validationSchema, handleSubmit }) => {
                       id="name"
                       name="name"
                       placeholder="Name"
-                    />
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <ErrorMessage name="email">asdasd</ErrorMessage>
-                    <Label>Email:</Label>
-                    <StyledField
-                      type="text"
-                      id="email"
-                      name="email"
-                      placeholder="Email"
                     />
                   </div>
                 </li>
@@ -77,8 +66,7 @@ const Form = ({ initialValues, validationSchema, handleSubmit }) => {
                 </li>
               </List>
               <ToLogin type="submit">Log in</ToLogin>
-            </StyledForm>
-          )}
+            </StyledForm>   
         </Formik>
       </div>
     </div>
