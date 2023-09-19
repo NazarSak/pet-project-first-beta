@@ -1,10 +1,15 @@
 import React from 'react';
-import { Container } from '../home/home.styled';
+import { Wrapper, Container } from '../LogIn/login.styled';
+import Form from 'front-end/components/form/Form';
+import wallet from '../../../assets/svgImage/wallet.png';
 
 export const Register = () => {
   return (
     <Container>
-      <h2>This is Register Page</h2>
-    </Container>
+      <Wrapper>
+        <img src={wallet} alt="Wallet" width="675" height="545" />
+      </Wrapper>
+     <Form/>
+    </Container> 
   );
 };

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Conatiner = styled.div`
   background: #1f1f27;
   box-shadow: 0px 7px 24px 0px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  width: 100%;
 `;
 
 export const Logo = styled.h3`
@@ -19,9 +21,6 @@ export const Logo = styled.h3`
   -webkit-text-fill-color: transparent;
   margin: 0;
   padding: 8px 0px 8px 40px;
-  
 `;
 
-export const CoinLogo = styled.span`
-
-`
+export const CoinLogo = styled.span``;

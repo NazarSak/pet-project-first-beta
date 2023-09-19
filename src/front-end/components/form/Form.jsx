@@ -39,10 +39,10 @@ const Form = ({ initialValues, validationSchema, handleSubmit }) => {
                 Or log in using an email and password, after registering:
               </UnderGoogleParagraph>
               <List>
-                <li>
+              <li>
                   <div>
                     <ErrorMessage name="name">asdasd</ErrorMessage>
-                    <Label>Email:</Label>
+                    <Label>Name:</Label>
                     <StyledField
                       type="text"
                       id="name"
@@ -53,13 +53,25 @@ const Form = ({ initialValues, validationSchema, handleSubmit }) => {
                 </li>
                 <li>
                   <div>
-                    <ErrorMessage name="email"></ErrorMessage>
-                    <Label>Password:</Label>
+                    <ErrorMessage name="email">asdasd</ErrorMessage>
+                    <Label>Email:</Label>
                     <StyledField
-                      type="email"
+                      type="text"
                       id="email"
                       name="email"
                       placeholder="Email"
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <ErrorMessage name="password"></ErrorMessage>
+                    <Label>Password:</Label>
+                    <StyledField
+                      type="email"
+                      id="password"
+                      name="password"
+                      placeholder="Password"
                     />
                   </div>
                 </li>
