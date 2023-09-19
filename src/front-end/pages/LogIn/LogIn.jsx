@@ -1,10 +1,10 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+// import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { validAccounts } from 'front-end/components/UserList';
 import { loginAsync } from 'front-end/redux/auth.js/actionCreator';
-import { StyledForm } from 'front-end/components/form/form.styled';
+// import { StyledForm } from 'front-end/components/form/form.styled';
 
 
 export const Login = () => {
@@ -12,7 +12,7 @@ export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
+  const handleLogin = () => { 
     // Перевіряємо, чи є користувач з таким ім'ям та паролем у списку валідних акаунтів
     const isValidAccount = validAccounts.find(
       (account) => account.username === username && account.password === password
