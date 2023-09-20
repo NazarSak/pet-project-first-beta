@@ -1,6 +1,6 @@
 export const validAccounts = [
   {
-    username: 'user1',
+    username: '1',
     password: 'password1',
   },
   {

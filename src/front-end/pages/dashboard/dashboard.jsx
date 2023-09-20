@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InterfaceApp = () => {
+const Dashboard = () => {
   return (
     <>
       <div>
@@ -11,4 +11,4 @@ const InterfaceApp = () => {
 };
 
 
-export default InterfaceApp
+export default Dashboard
