@@ -4,17 +4,26 @@ import { loginAsync } from './actionCreator';
 const initialState = {
   user: null,
   isLoading: false,
+  isAuthenticated: false,
   error: null,
-}
-
+};
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
+  reducers: {
+    logout: state => {
+      state.isAuthenticated = false;
+      state.user = null;
+    },
+    isAutorized:( state,action) => {
+      state.isAuthenticated = true;
+      state.user = action.payload;
+    },
+  },
+  extraReducers: builder => {
     builder
-      .addCase(loginAsync.pending, (state) => {
+      .addCase(loginAsync.pending, state => {
         state.isLoading = true;
       })
       .addCase(loginAsync.fulfilled, (state, action) => {
@@ -28,7 +37,6 @@ const authSlice = createSlice({
       });
   },
 });
-  
 
-export const { logout } = authSlice.actions
-export default authSlice.reducer
+export const { logout,isAutorized } = authSlice.actions;
+export default authSlice.reducer;
