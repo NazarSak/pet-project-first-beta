@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { validAccounts } from 'front-end/components/UserList';
 import { loginAsync } from 'front-end/redux/auth.js/actionCreator';
+import { isAutorized } from 'front-end/redux/auth.js/authSlice';
+import { toast } from 'react-toastify';
 import {
   StyledForm,
   List,
@@ -11,9 +13,10 @@ import {
   ToGoogleButton,
   Span,
   UnderGoogleParagraph,
+  Container,
+  Wrapper,
 } from './login.styled';
 import { ToLogin } from '../home/home.styled';
-import { Container, Wrapper } from './login.styled';
 import wallet from '../../../assets/svgImage/wallet.png';
 import googleLogo from '../../../assets/svgImage/google.svg';
 
@@ -32,10 +35,41 @@ export const Login = () => {
 
     if (isValidAccount) {
       dispatch(loginAsync({ username, password }));
+      dispatch(isAutorized(username));
       navigate('/dashboard');
-      console.log('all is good!');
+      toast.success('You are successfully logged in :)', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+    } else if (username === '' && password === '') {
+      toast.warning('fields must be filled', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
     } else {
       console.log('Неправильні дані автентифікації');
+      toast.error('Wrong password or name. Try again', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
     }
   };
 
@@ -87,81 +121,3 @@ export const Login = () => {
     </Container>
   );
 };
-
-
-// import React from 'react';
-// import { Formik, ErrorMessage } from 'formik';
-// import {
-//   StyledForm,
-//   StyledField,
-//   List,
-//   Label,
-//   UnderGoogleParagraph,
-//   BeforeGoogleParagraph,
-//   ToGoogle,
-//   Span,
-// } from './form.styled';
-// import { ToLogin } from 'front-end/pages/home/home.styled';
-// import googleLogo from '../../../assets/svgImage/google.svg';
-
-// const Form = ({ initialValues, validationSchema, handleSubmit }) => {
-//   return (
-//     <div>
-//       <div>
-//         <Formik
-//           initialValues={{ username: '', password: '' }}
-//           validate={values => {
-//             const errors = {};
-//             return errors;
-//           }}
-//           onSubmit={handleSubmit}
-//         >          
-//             <StyledForm>
-//               <BeforeGoogleParagraph>
-//                 You can log in with your Google Account:
-//               </BeforeGoogleParagraph>
-//               <ToGoogle type="submit">
-//                 <Span>
-//                   <img src={googleLogo} alt="Logo" width="17" height="18" />
-//                 </Span>
-//                 Google
-//               </ToGoogle>
-
-//               <UnderGoogleParagraph>
-//                 Or log in using an email and password, after registering:
-//               </UnderGoogleParagraph>
-//               <List>
-//                 <li>
-//                   <div>
-//                     <ErrorMessage name="name">asdasd</ErrorMessage>
-//                     <Label>Name:</Label>
-//                     <StyledField
-//                       type="text"
-//                       id="name"
-//                       name="name"
-//                       placeholder="Name"
-//                     />
-//                   </div>
-//                 </li>
-//                 <li>
-//                   <div>
-//                     <ErrorMessage name="password"></ErrorMessage>
-//                     <Label>Password:</Label>
-//                     <StyledField
-//                       type="email"
-//                       id="password"
-//                       name="password"
-//                       placeholder="Password"
-//                     />
-//                   </div>
-//                 </li>
-//               </List>
-//               <ToLogin type="submit">Log in</ToLogin>
-//             </StyledForm>   
-//         </Formik>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Form;

@@ -1,7 +1,7 @@
 export const validAccounts = [
   {
     username: '1',
-    password: 'password1',
+    password: '1',
   },
   {
     username: 'user2',
