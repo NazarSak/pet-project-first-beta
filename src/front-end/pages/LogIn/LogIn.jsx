@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { validAccounts } from 'front-end/components/UserList';
 import { loginAsync } from 'front-end/redux/auth.js/actionCreator';
 import { isAutorized } from 'front-end/redux/auth.js/authSlice';
