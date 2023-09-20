@@ -1,67 +1,167 @@
-import React from 'react';
-// import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { validAccounts } from 'front-end/components/UserList';
 import { loginAsync } from 'front-end/redux/auth.js/actionCreator';
-// import { StyledForm } from 'front-end/components/form/form.styled';
-
+import {
+  StyledForm,
+  List,
+  StyledField,
+  BeforeGoogleParagraph,
+  ToGoogleButton,
+  Span,
+  UnderGoogleParagraph,
+} from './login.styled';
+import { ToLogin } from '../home/home.styled';
+import { Container, Wrapper } from './login.styled';
+import wallet from '../../../assets/svgImage/wallet.png';
+import googleLogo from '../../../assets/svgImage/google.svg';
 
 export const Login = () => {
-  const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => { 
-    // Перевіряємо, чи є користувач з таким ім'ям та паролем у списку валідних акаунтів
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogin = e => {
+    e.preventDefault();
     const isValidAccount = validAccounts.find(
-      (account) => account.username === username && account.password === password
+      account => account.username === username && account.password === password
     );
 
     if (isValidAccount) {
-      // Якщо валідний акаунт, виконуємо автентифікацію
       dispatch(loginAsync({ username, password }));
-      // Перенаправляємо користувача на іншу сторінку
-      // Наприклад, за допомогою React Router
-      // history.push('/dashboard'); // Де '/dashboard' - URL іншої сторінки
-      console.log("all is good!");
+      navigate('/dashboard');
+      console.log('all is good!');
     } else {
-      // Якщо не валідний акаунт, можна вивести помилку або виконати інші дії
       console.log('Неправильні дані автентифікації');
     }
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Ім'я користувача"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Пароль"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Увійти</button>
-    </div>
+    <Container>
+      <Wrapper>
+        <img src={wallet} alt="Wallet" width="675" height="545" />
+      </Wrapper>
+      <StyledForm action="">
+        <BeforeGoogleParagraph>
+          You can log in with your Google Account:
+        </BeforeGoogleParagraph>
+        <ToGoogleButton type="submit">
+          <Span>
+            <img src={googleLogo} alt="Logo" width="17" height="18" />
+          </Span>
+          Google
+        </ToGoogleButton>
+
+        <UnderGoogleParagraph>
+          Or log in using an email and password, after registering:
+        </UnderGoogleParagraph>
+        <List>
+          <li>
+            <div>
+              <StyledField
+                type="text"
+                placeholder="Ім'я користувача"
+                value={username}
+                onChange={e => setUsername(e.target.value)}
+              />
+            </div>
+          </li>
+          <li>
+            <div>
+              <StyledField
+                type="password"
+                placeholder="Пароль"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+              />
+            </div>
+          </li>
+          <ToLogin type="submit" onClick={handleLogin}>
+            Увійти
+          </ToLogin>
+        </List>
+      </StyledForm>
+    </Container>
   );
 };
 
-// import React from 'react';
-// import { Container, Wrapper } from './login.styled';
-// import wallet from '../../../assets/svgImage/wallet.png';
-// import Form from 'front-end/components/form/Form';
 
-// export const Login = () => {
+// import React from 'react';
+// import { Formik, ErrorMessage } from 'formik';
+// import {
+//   StyledForm,
+//   StyledField,
+//   List,
+//   Label,
+//   UnderGoogleParagraph,
+//   BeforeGoogleParagraph,
+//   ToGoogle,
+//   Span,
+// } from './form.styled';
+// import { ToLogin } from 'front-end/pages/home/home.styled';
+// import googleLogo from '../../../assets/svgImage/google.svg';
+
+// const Form = ({ initialValues, validationSchema, handleSubmit }) => {
 //   return (
-//     <Container>
-//       <Wrapper>
-//         <img src={wallet} alt="Wallet" width="675" height="545" />
-//       </Wrapper>
-//      <Form/>
-//     </Container>
+//     <div>
+//       <div>
+//         <Formik
+//           initialValues={{ username: '', password: '' }}
+//           validate={values => {
+//             const errors = {};
+//             return errors;
+//           }}
+//           onSubmit={handleSubmit}
+//         >          
+//             <StyledForm>
+//               <BeforeGoogleParagraph>
+//                 You can log in with your Google Account:
+//               </BeforeGoogleParagraph>
+//               <ToGoogle type="submit">
+//                 <Span>
+//                   <img src={googleLogo} alt="Logo" width="17" height="18" />
+//                 </Span>
+//                 Google
+//               </ToGoogle>
+
+//               <UnderGoogleParagraph>
+//                 Or log in using an email and password, after registering:
+//               </UnderGoogleParagraph>
+//               <List>
+//                 <li>
+//                   <div>
+//                     <ErrorMessage name="name">asdasd</ErrorMessage>
+//                     <Label>Name:</Label>
+//                     <StyledField
+//                       type="text"
+//                       id="name"
+//                       name="name"
+//                       placeholder="Name"
+//                     />
+//                   </div>
+//                 </li>
+//                 <li>
+//                   <div>
+//                     <ErrorMessage name="password"></ErrorMessage>
+//                     <Label>Password:</Label>
+//                     <StyledField
+//                       type="email"
+//                       id="password"
+//                       name="password"
+//                       placeholder="Password"
+//                     />
+//                   </div>
+//                 </li>
+//               </List>
+//               <ToLogin type="submit">Log in</ToLogin>
+//             </StyledForm>   
+//         </Formik>
+//       </div>
+//     </div>
 //   );
 // };
+
+// export default Form;
