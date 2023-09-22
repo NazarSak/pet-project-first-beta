@@ -45,3 +45,9 @@ export const ExitContainer = styled.div`
   gap: 20px;
 `;
 
+export const SpinerContainer = styled.div`
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+`;

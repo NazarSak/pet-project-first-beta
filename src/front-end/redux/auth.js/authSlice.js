@@ -16,7 +16,7 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
       state.user = null;
     },
-    isAutorized:( state,action) => {
+    isAutorized: (state, action) => {
       state.isAuthenticated = true;
       state.user = action.payload;
     },
@@ -29,7 +29,7 @@ const authSlice = createSlice({
       .addCase(loginAsync.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
-      state.isAuthenticated = true;
+        state.isAuthenticated = true;
         state.error = null;
       })
       .addCase(loginAsync.rejected, (state, action) => {
@@ -39,5 +39,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout,isAutorized } = authSlice.actions;
+export const { logout, isAutorized } = authSlice.actions;
 export default authSlice.reducer;

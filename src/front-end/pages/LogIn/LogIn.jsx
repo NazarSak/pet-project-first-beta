@@ -4,7 +4,9 @@ import { useDispatch } from 'react-redux';
 import { validAccounts } from 'front-end/components/UserList';
 import { loginAsync } from 'front-end/redux/auth.js/actionCreator';
 import { isAutorized } from 'front-end/redux/auth.js/authSlice';
-import { toast } from 'react-toastify';
+import { FidgetSpinner } from 'react-loader-spinner';
+import { showToast } from 'front-end/components/helpers/Toaster';
+import { SpinerContainer } from 'front-end/components/header/header.styled';
 import {
   StyledForm,
   List,
@@ -23,6 +25,7 @@ import googleLogo from '../../../assets/svgImage/google.svg';
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,45 +35,20 @@ export const Login = () => {
     const isValidAccount = validAccounts.find(
       account => account.username === username && account.password === password
     );
-
-    if (isValidAccount) {
-      dispatch(loginAsync({ username, password }));
-      dispatch(isAutorized(username));
-      navigate('/dashboard');
-      toast.success('You are successfully logged in :)', {
-        position: 'top-center',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'dark',
-      });
-    } else if (username === '' && password === '') {
-      toast.warning('fields must be filled', {
-        position: 'top-center',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'dark',
-      });
-    } else {
-      console.log('Неправильні дані автентифікації');
-      toast.error('Wrong password or name. Try again', {
-        position: 'top-center',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'dark',
-      });
-    }
+    setIsLoading(true);
+    setTimeout(() => {
+      if (isValidAccount) {
+        dispatch(loginAsync({ username, password }));
+        dispatch(isAutorized(username));
+        navigate('/dashboard');
+        showToast('You are successfully logged in :');
+      } else if (username === '' && password === '') {
+        showToast('fields must be filled', 'warning');
+      } else {
+        showToast('Wrong password or name. Try again', 'error');
+      }
+      setIsLoading(false);
+    }, 1000);
   };
 
   return (
@@ -118,6 +96,20 @@ export const Login = () => {
           </ToLogin>
         </List>
       </StyledForm>
+      <SpinerContainer>
+        {isLoading && (
+         <FidgetSpinner
+         visible={true}
+         height="80"
+         width="80"
+         ariaLabel="dna-loading"
+         wrapperStyle={{}}
+         wrapperClass="dna-wrapper"
+         ballColors={['#ff0000', '#00ff00', '#0000ff']}
+         backgroundColor="#F4442E"
+       />
+        )}
+      </SpinerContainer>
     </Container>
   );
 };
