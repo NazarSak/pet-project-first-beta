@@ -55,61 +55,60 @@ export const Login = () => {
     <Container>
       <Wrapper>
         <img src={wallet} alt="Wallet" width="675" height="545" />
+        <StyledForm action="">
+          <BeforeGoogleParagraph>
+            You can log in with your Google Account:
+          </BeforeGoogleParagraph>
+          <ToGoogleButton type="submit">
+            <Span>
+              <img src={googleLogo} alt="Logo" width="17" height="18"/>
+            </Span>
+            Google
+          </ToGoogleButton>
+          <UnderGoogleParagraph>
+            Or log in using an email and password, after registering:
+          </UnderGoogleParagraph>
+          <List>
+            <li>
+              <div>
+                <StyledField
+                  type="text"
+                  placeholder="Ім'я користувача"
+                  value={username}
+                  onChange={e => setUsername(e.target.value)}
+                />
+              </div>
+            </li>
+            <li>
+              <div>
+                <StyledField
+                  type="password"
+                  placeholder="Пароль"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                />
+              </div>
+            </li>
+            <ToLogin type="submit" onClick={handleLogin}>
+              Увійти
+            </ToLogin>
+          </List>
+        </StyledForm>
+        <SpinerContainer>
+          {isLoading && (
+          <FidgetSpinner
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+          ballColors={['#ff0000', '#00ff00', '#0000ff']}
+          backgroundColor="#F4442E"
+        />
+          )}
+        </SpinerContainer>
       </Wrapper>
-      <StyledForm action="">
-        <BeforeGoogleParagraph>
-          You can log in with your Google Account:
-        </BeforeGoogleParagraph>
-        <ToGoogleButton type="submit">
-          <Span>
-            <img src={googleLogo} alt="Logo" width="17" height="18" />
-          </Span>
-          Google
-        </ToGoogleButton>
-
-        <UnderGoogleParagraph>
-          Or log in using an email and password, after registering:
-        </UnderGoogleParagraph>
-        <List>
-          <li>
-            <div>
-              <StyledField
-                type="text"
-                placeholder="Ім'я користувача"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-              />
-            </div>
-          </li>
-          <li>
-            <div>
-              <StyledField
-                type="password"
-                placeholder="Пароль"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-              />
-            </div>
-          </li>
-          <ToLogin type="submit" onClick={handleLogin}>
-            Увійти
-          </ToLogin>
-        </List>
-      </StyledForm>
-      <SpinerContainer>
-        {isLoading && (
-         <FidgetSpinner
-         visible={true}
-         height="80"
-         width="80"
-         ariaLabel="dna-loading"
-         wrapperStyle={{}}
-         wrapperClass="dna-wrapper"
-         ballColors={['#ff0000', '#00ff00', '#0000ff']}
-         backgroundColor="#F4442E"
-       />
-        )}
-      </SpinerContainer>
     </Container>
   );
 };
