@@ -1,23 +1,23 @@
 import styled from 'styled-components';
-import EllipseGreen from '../../../assets/svgImage/EllipseGreen.png';
+import EllipseGreen from '../../../assets/svgImage/01-home.png';
 
 export const Wrapper = styled.div`
-  background-image: url(${EllipseGreen});
-  width: 1150px;
-  height: 1150px;
-  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
+  column-gap: 50px;
 `;
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: unset;
+  margin-top: 49px;
+  background-image: url(${EllipseGreen});
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  background: #383847;
 `;
 
 export const StyledForm = styled.form`
