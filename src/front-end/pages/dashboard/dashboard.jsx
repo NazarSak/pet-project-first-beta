@@ -1,19 +1,15 @@
 import React from 'react';
+import { Container } from '../LogIn/login.styled';
 // import { useSelector } from 'react-redux';
 
 const Dashboard = () => {
-
-  // const userName = useSelector(state => state.auth.user)
-
-
   return (
     <>
-      <div>
-        <h2>asdasddsa</h2>
-      </div>
+      <Container style={{height:"100%"}}>
+        <h2>Hello this is Dashboard</h2>
+      </Container>
     </>
   );
 };
 
-
-export default Dashboard
+export default Dashboard;
