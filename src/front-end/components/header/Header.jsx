@@ -14,6 +14,7 @@ export const Header = () => {
     setIsLoading(true);
     setTimeout(() => {
       dispatch(logout());
+      localStorage.removeItem('userData');
       setIsLoading(false);
     }, 1000);
   };
