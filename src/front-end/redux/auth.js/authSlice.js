@@ -29,6 +29,7 @@ const authSlice = createSlice({
       .addCase(loginAsync.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
+      state.isAuthenticated = true;
         state.error = null;
       })
       .addCase(loginAsync.rejected, (state, action) => {

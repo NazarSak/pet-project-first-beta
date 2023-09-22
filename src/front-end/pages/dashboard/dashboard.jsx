@@ -5,7 +5,6 @@ const Dashboard = () => {
 
   const userName = useSelector(state => state.auth.user)
 
-  console.log(userName);
 
   return (
     <>
