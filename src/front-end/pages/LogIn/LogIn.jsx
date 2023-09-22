@@ -40,8 +40,12 @@ export const Login = () => {
       if (isValidAccount) {
         dispatch(loginAsync({ username, password }));
         dispatch(isAutorized(username));
+
         navigate('/dashboard');
         showToast('You are successfully logged in :');
+
+        localStorage.setItem('userData', true);
+        localStorage.setItem('userNameData', username);
       } else if (username === '' && password === '') {
         showToast('fields must be filled', 'warning');
       } else {
@@ -98,16 +102,16 @@ export const Login = () => {
       </StyledForm>
       <SpinerContainer>
         {isLoading && (
-         <FidgetSpinner
-         visible={true}
-         height="80"
-         width="80"
-         ariaLabel="dna-loading"
-         wrapperStyle={{}}
-         wrapperClass="dna-wrapper"
-         ballColors={['#ff0000', '#00ff00', '#0000ff']}
-         backgroundColor="#F4442E"
-       />
+          <FidgetSpinner
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper"
+            ballColors={['#ff0000', '#00ff00', '#0000ff']}
+            backgroundColor="#F4442E"
+          />
         )}
       </SpinerContainer>
     </Container>
