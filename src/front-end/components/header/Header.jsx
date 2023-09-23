@@ -1,20 +1,29 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { FidgetSpinner } from 'react-loader-spinner';
 import { logout } from 'front-end/redux/auth.js/authSlice';
-import { Conatiner, Logo, ExitButton, ExitContainer,SpinerContainer } from './header.styled';
+import {
+  Conatiner,
+  Logo,
+  SpinerContainer,
+} from './header.styled';
+import { Spiner } from '../helpers/spiner';
+import { ExitModalka } from '../exitModalka/ExitModalka';
 import Coin from '../../../assets/svgImage/coin.png';
 
 export const Header = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { isAuthenticated, user } = useSelector(state => state.auth);
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setIsLoading(true);
     setTimeout(() => {
       dispatch(logout());
-      localStorage.removeItem('userData');
+      sessionStorage.removeItem('userData');
+      navigate('/login');
       setIsLoading(false);
     }, 1000);
   };
@@ -28,27 +37,11 @@ export const Header = () => {
           ss
         </Logo>
         {isAuthenticated && (
-          <ExitContainer>
-            <Logo>Welcome:{user}</Logo>
-            <ExitButton onClick={handleClick}> Exit</ExitButton>
-          </ExitContainer>
+          <ExitModalka user={user} handleClick={handleClick} />
         )}
       </Conatiner>
 
-      <SpinerContainer>
-        {isLoading && (
-         <FidgetSpinner
-         visible={true}
-         height="80"
-         width="80"
-         ariaLabel="dna-loading"
-         wrapperStyle={{}}
-         wrapperClass="dna-wrapper"
-         ballColors={['#ff0000', '#00ff00', '#0000ff']}
-         backgroundColor="#F4442E"
-       />
-        )}
-      </SpinerContainer>
+      <SpinerContainer>{isLoading && <Spiner />}</SpinerContainer>
     </>
   );
 };

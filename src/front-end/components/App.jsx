@@ -11,8 +11,8 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const userDataString = localStorage.getItem('userData');
-    const userNameDataString = localStorage.getItem('userNameData');
+    const userDataString = sessionStorage.getItem('userData');
+    const userNameDataString = sessionStorage.getItem('userNameData');
     if (userDataString) {
       dispatch(isAutorized(userNameDataString));
     }
@@ -20,7 +20,8 @@ export const App = () => {
   }, []);
 
   const ProtectedRoute = ({ element }) => {
-    const userDataString = localStorage.getItem('userData');
+    const userDataString = sessionStorage.getItem('userData');
+    console.log(userDataString);
     return userDataString ? element : <Navigate to="/login" />;
   };
 
