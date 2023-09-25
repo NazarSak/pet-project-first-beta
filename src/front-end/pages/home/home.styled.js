@@ -30,7 +30,6 @@ export const ToLogin = styled.button`
   box-shadow: 1px 3px 5px 0px rgba(96, 196, 112, 0.35);
   padding: 15px 48px;
   border: none;
-  cursor: pointer;
 `;
 
 export const ContainerButtons = styled.div`

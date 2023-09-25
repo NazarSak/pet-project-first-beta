@@ -31,7 +31,6 @@ export const ExitButton = styled.button`
   box-shadow: 1px 3px 5px 0px rgba(96, 196, 112, 0.35);
   padding: 10px 30px;
   border: none;
-  cursor: pointer;
   margin-right: 56px;
 `;
 
@@ -71,14 +70,13 @@ export const ButtonAgree = styled.button`
   letter-spacing: 0.02em;
   padding: 15px 52px;
   border: none;
-  cursor: pointer;
   box-shadow: 1px 3px 5px 0px #60c47059;
   background: #42a652;
   color: #f6f7fb;
   margin-right: 16px;
 `;
 
-export const ButtonDesagree = styled.button`
+export const ButtonDisagree = styled.button`
   border-radius: 16px;
   font-size: 12px;
   font-weight: 700;
@@ -86,7 +84,6 @@ export const ButtonDesagree = styled.button`
   letter-spacing: 0.02em;
   padding: 15px 52px;
   border: none;
-  cursor: pointer;
   border: 2px solid #474759;
   box-shadow: 0px 4px 7px 0px #00000040;
   background: #383847;
@@ -113,3 +110,5 @@ export const Stick = styled.div`
   color: #e0e5eb;
   margin:0 20px;
 `;
+
+
