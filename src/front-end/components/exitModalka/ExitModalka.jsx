@@ -5,7 +5,14 @@ import {
   ExitButton,
   ModalWrapper,
   ModalContent,
+  Title,
+  ButtonAgree,
+  ButtonDesagree,
+  ButContainer,
+  DaggerSvg,
+  Stick
 } from './ExitModalka.styled';
+import close from '../../../assets/svgImage/close.svg';
 
 export const ExitModalka = ({ user, handleClick }) => {
   const [isModalkaOpen, setIsModalkaOpen] = useState(false);
@@ -51,14 +58,18 @@ export const ExitModalka = ({ user, handleClick }) => {
     <>
       <ExitContainer>
         <Logo>Welcome:{user}</Logo>
+        <Stick/>
         <ExitButton onClick={OpenModalka}>Exit</ExitButton>
       </ExitContainer>
       {isModalkaOpen && (
         <ModalWrapper onClick={closeModal}>
-          <ModalContent>
-            <h2>Шо ти тут забуло бидло</h2>
-            <p>Теряйся отсюда</p>
-            <button onClick={handleClick}>Піти нахер</button>
+          <ModalContent onClick={e => e.stopPropagation()}>
+            <Title>Do you really want to leave?</Title>
+            <ButContainer>
+              <ButtonAgree onClick={handleClick}>Yes</ButtonAgree>
+              <ButtonDesagree onClick={closeModal}>No</ButtonDesagree>
+              <DaggerSvg src={close} alt="dagger" onClick={closeModal} />
+            </ButContainer>
           </ModalContent>
         </ModalWrapper>
       )}
