@@ -17,7 +17,7 @@ export const Container = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 `;
 
 export const StyledForm = styled.form`
@@ -91,7 +91,6 @@ export const ToGoogleButton = styled.button`
   letter-spacing: 0.28px;
   border-radius: 16px;
   background: #f6f7fb;
-  cursor: pointer;
   outline: none;
   border: none;
   box-shadow: 1px 3px 5px 0px rgba(255, 255, 255, 0.35);

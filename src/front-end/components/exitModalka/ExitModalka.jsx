@@ -7,10 +7,10 @@ import {
   ModalContent,
   Title,
   ButtonAgree,
-  ButtonDesagree,
+  ButtonDisagree,
   ButContainer,
   DaggerSvg,
-  Stick
+  Stick,
 } from './ExitModalka.styled';
 import close from '../../../assets/svgImage/close.svg';
 
@@ -58,7 +58,7 @@ export const ExitModalka = ({ user, handleClick }) => {
     <>
       <ExitContainer>
         <Logo>Welcome:{user}</Logo>
-        <Stick/>
+        <Stick />
         <ExitButton onClick={OpenModalka}>Exit</ExitButton>
       </ExitContainer>
       {isModalkaOpen && (
@@ -67,7 +67,7 @@ export const ExitModalka = ({ user, handleClick }) => {
             <Title>Do you really want to leave?</Title>
             <ButContainer>
               <ButtonAgree onClick={handleClick}>Yes</ButtonAgree>
-              <ButtonDesagree onClick={closeModal}>No</ButtonDesagree>
+              <ButtonDisagree onClick={closeModal}>No</ButtonDisagree>
               <DaggerSvg src={close} alt="dagger" onClick={closeModal} />
             </ButContainer>
           </ModalContent>
