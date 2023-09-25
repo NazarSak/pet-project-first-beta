@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { validAccounts } from 'front-end/components/UserList';
@@ -17,6 +17,22 @@ export const Login = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+
+    const handlePopState = () => {
+      sessionStorage.removeItem('userData');
+    };
+
+    // Додавання обробника події "popstate" при завантаженні компонента
+    window.addEventListener('popstate', handlePopState);
+
+    // При видаленні компонента видаляємо обробник події
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+
+  }, []);
 
   const handleLogin = (username, password) => {
     const isValidAccount = validAccounts.find(
