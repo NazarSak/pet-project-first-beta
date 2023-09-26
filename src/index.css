@@ -21,3 +21,8 @@ code {
     flex-direction: column;
     height: 100%;
   }
+
+  button{
+    outline: none;
+    cursor: pointer;
+  }

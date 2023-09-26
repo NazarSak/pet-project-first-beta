@@ -1,19 +1,21 @@
 import styled from 'styled-components';
-import EllipseGreen from '../../../assets/svgImage/EllipseGreen.png';
+import EllipseGreen from '../../../assets/svgImage/01-home.png';
 
 export const Wrapper = styled.div`
-  background-image: url(${EllipseGreen});
-  width: 1150px;
-  height: 1150px;
-  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
+  column-gap: 50px;
 `;
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: unset;
+  margin-top: 49px;
+  background-image: url(${EllipseGreen});
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -91,7 +93,6 @@ export const ToGoogleButton = styled.button`
   letter-spacing: 0.28px;
   border-radius: 16px;
   background: #f6f7fb;
-  cursor: pointer;
   outline: none;
   border: none;
   box-shadow: 1px 3px 5px 0px rgba(255, 255, 255, 0.35);
