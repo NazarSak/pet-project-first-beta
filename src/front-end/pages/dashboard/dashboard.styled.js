@@ -1,0 +1,20 @@
+import styled from 'styled-components';
+
+export const ButContainer = styled.div`
+  display: flex;
+  align-items: baseline;
+  margin-top: 40px;
+`;
+
+export const UnderHeaderButton = styled.button`
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  padding: 13px 35px;
+  border: none;
+  border: 2px solid #80848F;
+  background-color: rgba(0, 0, 0, 0);
+  color: #c7ccdc;
+`;

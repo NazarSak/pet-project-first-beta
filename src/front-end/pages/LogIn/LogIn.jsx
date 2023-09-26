@@ -18,8 +18,23 @@ export const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogin = e => {
-    e.preventDefault();
+  useEffect(() => {
+
+    const handlePopState = () => {
+      sessionStorage.removeItem('userData');
+    };
+
+    // Додавання обробника події "popstate" при завантаженні компонента
+    window.addEventListener('popstate', handlePopState);
+
+    // При видаленні компонента видаляємо обробник події
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+
+  }, []);
+
+  const handleLogin = (username, password) => {
     const isValidAccount = validAccounts.find(
       account => account.username === username && account.password === password
     );
