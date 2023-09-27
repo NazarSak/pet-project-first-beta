@@ -45,7 +45,7 @@ export const Login = () => {
         dispatch(isAutorized(username));
 
         navigate('/dashboard');
-        showToast('You are successfully logged in :');
+        showToast("Hello! To get started, enter the current balance of your account! You can't spend money until you have it :)");
 
         sessionStorage.setItem('userData', true);
         sessionStorage.setItem('userNameData', username);

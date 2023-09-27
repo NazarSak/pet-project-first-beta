@@ -16,7 +16,7 @@ export function showToast(text, type) {
   } else if (type === 'error') {
     toastOptions.type = toast.TYPE.ERROR;
   } else {
-    toastOptions.type = toast.TYPE.SUCCESS;
+    toastOptions.type = toast.TYPE.INFO;
   }
 
   toast(text, toastOptions);

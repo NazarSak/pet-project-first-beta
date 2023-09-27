@@ -18,3 +18,20 @@ export const UnderHeaderButton = styled.button`
   background-color: rgba(0, 0, 0, 0);
   color: #c7ccdc;
 `;
+
+export const ReportsContainer = styled.div`
+display: flex;
+margin-left: 300px;
+align-items: center;
+gap: 15px;
+`
+
+export const ReportText = styled.p`
+color: #C7CCDC80;
+font-size: 12px;
+font-weight: 400;
+line-height: 14px;
+letter-spacing: 0.04em;
+text-align: right;
+
+`
