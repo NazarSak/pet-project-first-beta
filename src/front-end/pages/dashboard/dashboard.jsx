@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment-timezone';
 import { Container } from '../LogIn/login.styled';
-import { ButContainer, UnderHeaderButton,ReportsContainer,ReportText } from './dashboard.styled';
+import {
+  ButContainer,
+  UnderHeaderButton,
+  ReportsContainer,
+  ReportText,
+  CalendarText,
+} from './dashboard.styled';
 import { Title } from 'front-end/components/exitModalka/ExitModalka.styled';
 import reports from '../../../assets/svgImage/reports.svg';
+import calendar from '../../../assets/svgImage/calendar.svg';
 
 const Dashboard = () => {
   const [currentDate, setCurrentDate] = useState(
@@ -42,8 +49,11 @@ const Dashboard = () => {
           <ReportText>Reports</ReportText>
           <img src={reports} alt="reportsSvg" />
         </ReportsContainer>
+      <ReportsContainer>
+        <img src={calendar} alt="calendar" />
+        <CalendarText>{currentDate}</CalendarText>
+      </ReportsContainer>
       </ButContainer>
-      <p>{currentDate}</p>
     </Container>
     // </>
   );

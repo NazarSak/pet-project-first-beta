@@ -14,24 +14,32 @@ export const UnderHeaderButton = styled.button`
   letter-spacing: 0.02em;
   padding: 13px 35px;
   border: none;
-  border: 2px solid #80848F;
+  border: 2px solid #80848f;
   background-color: rgba(0, 0, 0, 0);
   color: #c7ccdc;
 `;
 
 export const ReportsContainer = styled.div`
-display: flex;
-margin-left: 300px;
-align-items: center;
-gap: 15px;
-`
+  display: flex;
+  margin-left: 300px;
+  align-items: center;
+  gap: 15px;
+`;
 
 export const ReportText = styled.p`
-color: #C7CCDC80;
-font-size: 12px;
-font-weight: 400;
-line-height: 14px;
-letter-spacing: 0.04em;
-text-align: right;
+  color: #c7ccdc80;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  text-align: right;
+`;
 
-`
+export const CalendarText = styled.p`
+  color: #c7ccdc;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  text-align: left;
+`;
