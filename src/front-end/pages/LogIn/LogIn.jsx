@@ -3,13 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { validAccounts } from 'front-end/components/UserList';
 import { loginAsync } from 'front-end/redux/auth.js/actionCreator';
-import { isAutorized } from 'front-end/redux/auth.js/authSlice';
+import { isAutorized, logout } from 'front-end/redux/auth.js/authSlice';
 import { showToast } from 'front-end/components/helpers/Toaster';
 import { SpinerContainer } from 'front-end/components/header/header.styled';
 import { Spiner } from 'front-end/components/helpers/spiner';
 import { Form } from 'front-end/components/form/Form';
 import { Container, Wrapper } from './login.styled';
-
 import wallet from '../../../assets/svgImage/wallet.png';
 
 export const Login = () => {
@@ -19,20 +18,9 @@ export const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-
-    const handlePopState = () => {
-      sessionStorage.removeItem('userData');
-    };
-
-    // Додавання обробника події "popstate" при завантаженні компонента
-    window.addEventListener('popstate', handlePopState);
-
-    // При видаленні компонента видаляємо обробник події
-    return () => {
-      window.removeEventListener('popstate', handlePopState);
-    };
-
-  }, []);
+    sessionStorage.removeItem('userData');
+    dispatch(logout());
+  }, [dispatch]);
 
   const handleLogin = (username, password) => {
     const isValidAccount = validAccounts.find(
@@ -45,7 +33,9 @@ export const Login = () => {
         dispatch(isAutorized(username));
 
         navigate('/dashboard');
-        showToast("Hello! To get started, enter the current balance of your account! You can't spend money until you have it :)");
+        showToast(
+          "Hello! To get started, enter the current balance of your account! You can't spend money until you have it :)"
+        );
 
         sessionStorage.setItem('userData', true);
         sessionStorage.setItem('userNameData', username);
