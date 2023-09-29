@@ -5,8 +5,16 @@ import {
   ButContainer,
   UnderHeaderButton,
   ReportsContainer,
+  ReportsContainerForCalendar,
   ReportText,
   CalendarText,
+  TableContainer,
+  TableSearchContainer,
+  TableSearch,
+  InputSearch,
+  SelectCategory,
+  Select,
+  OptionItem,
 } from './dashboard.styled';
 import { Title } from 'front-end/components/exitModalka/ExitModalka.styled';
 import reports from '../../../assets/svgImage/reports.svg';
@@ -36,6 +44,14 @@ const Dashboard = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  const [selectedOption, setSelectedOption] = useState('');
+
+  const options = ['Опция 1', 'Опция 2', 'Опция 3'];
+
+  const handleOptionClick = value => {
+    setSelectedOption(value);
+  };
+
   return (
     // <>
     <Container style={{ height: '100%' }}>
@@ -49,11 +65,31 @@ const Dashboard = () => {
           <ReportText>Reports</ReportText>
           <img src={reports} alt="reportsSvg" />
         </ReportsContainer>
-      <ReportsContainer>
-        <img src={calendar} alt="calendar" />
-        <CalendarText>{currentDate}</CalendarText>
-      </ReportsContainer>
       </ButContainer>
+      <TableContainer>
+        <TableSearchContainer>
+          <ReportsContainerForCalendar>
+            <img src={calendar} alt="calendar" />
+            <CalendarText>{currentDate}</CalendarText>
+          </ReportsContainerForCalendar>
+          <TableSearch>
+            <InputSearch placeholder="Product description"></InputSearch>
+            <SelectCategory>
+              <Select
+                value={selectedOption}
+                onChange={e => handleOptionClick(e.target.value)}
+              >
+                <OptionItem value="">Product category</OptionItem>
+                {options.map((option, index) => (
+                  <OptionItem key={index} value={option}>
+                    {option}
+                  </OptionItem>
+                ))}
+              </Select>
+            </SelectCategory>
+          </TableSearch>
+        </TableSearchContainer>
+      </TableContainer>
     </Container>
     // </>
   );
