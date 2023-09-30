@@ -15,10 +15,16 @@ import {
   SelectCategory,
   Select,
   OptionItem,
+  CalculatorContainer,
+  CalculatorText,
+  ButtonContainer,
+  ButtonInput,
+  ButtonClear,
 } from './dashboard.styled';
 import { Title } from 'front-end/components/exitModalka/ExitModalka.styled';
 import reports from '../../../assets/svgImage/reports.svg';
 import calendar from '../../../assets/svgImage/calendar.svg';
+import calculator from '../../../assets/svgImage/calculator.svg';
 
 const Dashboard = () => {
   const [currentDate, setCurrentDate] = useState(
@@ -46,7 +52,18 @@ const Dashboard = () => {
 
   const [selectedOption, setSelectedOption] = useState('');
 
-  const options = ['Опция 1', 'Опция 2', 'Опция 3'];
+  const options = [
+    'Transport',
+    'Health',
+    'Alcohol',
+    'Entertainment',
+    'Housing',
+    'Technique',
+    'Communal, communication',
+    'Sports, hobbies',
+    'Education',
+    'Other',
+  ];
 
   const handleOptionClick = value => {
     setSelectedOption(value);
@@ -87,7 +104,15 @@ const Dashboard = () => {
                 ))}
               </Select>
             </SelectCategory>
+            <CalculatorContainer>
+              <CalculatorText>00:00</CalculatorText>
+              <img src={calculator} alt="calculator" />
+            </CalculatorContainer>
           </TableSearch>
+          <ButtonContainer>
+            <ButtonInput>Input</ButtonInput>
+            <ButtonClear>Clear</ButtonClear>
+          </ButtonContainer>
         </TableSearchContainer>
       </TableContainer>
     </Container>
