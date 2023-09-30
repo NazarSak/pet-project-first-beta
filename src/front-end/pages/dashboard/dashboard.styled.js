@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ButContainer = styled.div`
+  height: 50px;
   display: flex;
   align-items: baseline;
   margin-top: 40px;
@@ -20,26 +21,33 @@ export const UnderHeaderButton = styled.button`
 `;
 
 export const ReportsContainer = styled.div`
+  position: absolute;
+  right: 100px;
+  height: 40px;
   display: flex;
-  margin-left: 300px;
   align-items: center;
   gap: 15px;
 `;
 
+
+export const TableContainer = styled.div`
+margin-top: 140px;
+padding: 32px;
+position: absolute;
+width: 1066px;
+height: 542px;
+border-radius: 0 20px 20px 20px;
+background-color: #383847;
+opacity: 0.8;
+`;
+
+
 export const ReportText = styled.p`
+
   color: #c7ccdc80;
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
   letter-spacing: 0.04em;
   text-align: right;
-`;
-
-export const CalendarText = styled.p`
-  color: #c7ccdc;
-  font-size: 12px;
-  font-weight: 900;
-  line-height: 14px;
-  letter-spacing: 0.04em;
-  text-align: left;
 `;
