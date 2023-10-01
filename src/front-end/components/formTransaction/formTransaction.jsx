@@ -10,7 +10,7 @@ import {
   Select,
   OptionItem,
   CalculatorContainer,
-  CalculatorText,
+  // CalculatorText,
   ButtonContainer,
   ButtonInput,
   ButtonClear,
