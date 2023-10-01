@@ -21,7 +21,6 @@ export const App = () => {
 
   const ProtectedRoute = ({ element }) => {
     const userDataString = sessionStorage.getItem('userData');
-    console.log(userDataString);
     return userDataString ? element : <Navigate to="/login" />;
   };
 
