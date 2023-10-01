@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { validAccounts } from 'front-end/components/UserList';
+import { validAccounts } from 'front-end/components/Arrays/UserList';
 import { loginAsync } from 'front-end/redux/auth.js/actionCreator';
 import { isAutorized, logout } from 'front-end/redux/auth.js/authSlice';
 import { showToast } from 'front-end/components/helpers/Toaster';

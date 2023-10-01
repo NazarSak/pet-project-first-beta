@@ -17,8 +17,6 @@ import close from '../../../assets/svgImage/close.svg';
 export const ExitModalka = ({ user, handleClick }) => {
   const [isModalkaOpen, setIsModalkaOpen] = useState(false);
 
-  console.log(isModalkaOpen);
-
   const OpenModalka = () => {
     setIsModalkaOpen(true);
   };
