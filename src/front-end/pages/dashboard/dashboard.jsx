@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Container } from '../LogIn/login.styled';
 import {
@@ -13,11 +13,16 @@ import reports from '../../../assets/svgImage/reports.svg';
 import { FormTransaction } from '../../components/formTransaction/formTransaction';
 import { Table } from 'front-end/components/Table/Table';
 
-
 const Dashboard = () => {
+  const [data, setData] = useState([]);
+
+  const handleAddTransaction = (newItem) => {
+    setData((prevData) => [...prevData, newItem]);
+  };
+
+console.log(data);
 
   return (
-    // <>
     <Container style={{ height: '100%' }}>
       <ButContainer>
         <Title style={{ marginRight: 20 }}>Balance:</Title>
@@ -31,11 +36,10 @@ const Dashboard = () => {
         </ReportsContainer>
       </ButContainer>
       <TableContainer>
-        <FormTransaction/>
-        <Table/>
+        <FormTransaction onAddTransaction={handleAddTransaction}/>
+        <Table data={data}/>
       </TableContainer>
     </Container>
-    // </>
   );
 };
 
