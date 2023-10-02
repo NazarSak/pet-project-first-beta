@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const TableHeader = styled.div`
   display: flex;
@@ -84,9 +84,27 @@ export const TableColumnContainer = styled.ul`
 export const TableColumn = styled.li`
   list-style: none;
   margin: 0;
+  display: flex;
+  gap: 100px;
   width: 738.8px;
   height: 38px;
   border-width: 1px 6px 1px 2px;
   border-style: solid;
   border-color: var(--grey, #474759);
 `;
+
+export const ContainerMessage = styled.div`
+  display: flex;
+  align-items: center;
+  max-width: 750px;
+`;
+
+export const TitleMessage = styled.h2`
+  color: #fff;
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 2.56px;
+  text-transform: uppercase;
+`
+

@@ -29,21 +29,18 @@ export const ReportsContainer = styled.div`
   gap: 15px;
 `;
 
-
 export const TableContainer = styled.div`
-margin-top: 140px;
-padding: 32px;
-position: absolute;
-width: 1066px;
-height: 542px;
-border-radius: 0 20px 20px 20px;
-background-color: #383847;
-opacity: 0.8;
+  margin-top: 140px;
+  padding: 32px;
+  position: absolute;
+  width: 1066px;
+  height: 542px;
+  border-radius: 0 20px 20px 20px;
+  background-color: #383847;
+  opacity: 0.8;
 `;
 
-
 export const ReportText = styled.p`
-
   color: #c7ccdc80;
   font-size: 12px;
   font-weight: 400;

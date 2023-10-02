@@ -19,7 +19,7 @@ import calendar from '../../../assets/svgImage/calendar.svg';
 import calculator from '../../../assets/svgImage/calculator.svg';
 import { Options } from '../Arrays/Options';
 
-export const FormTransaction = () => {
+export const FormTransaction = ({ onAddTransaction }) => {
   const [currentDate, setCurrentDate] = useState(
     moment().tz('Europe/Kiev').format('DD-MM-YYYY')
   );
@@ -42,37 +42,37 @@ export const FormTransaction = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = e => {
     let inputValue = e.target.value;
 
-    // Видаляємо всі символи, що не є цифрами або точкою
     inputValue = inputValue.replace(/[^\d.]/g, '');
 
-    // Обмеження введення до двох знаків після коми
     const dotIndex = inputValue.indexOf('.');
     if (dotIndex !== -1) {
       inputValue = inputValue.slice(0, dotIndex + 3);
     }
-
-    // Обмеження введення в межах від 0 до 100000
     const parsedValue = parseFloat(inputValue);
     if (!isNaN(parsedValue) && parsedValue >= 0 && parsedValue <= 100000) {
       setAmount(parsedValue.toFixed(2));
     } else if (!isNaN(parsedValue) && parsedValue > 100000) {
-      // Якщо введене значення більше за максимальне, встановити максимальне
       setAmount('100000.00');
     } else {
-      // Якщо значення недопустиме, можна реалізувати власну обробку, наприклад, не змінювати значення
-      // або встановити значення за замовчуванням
       setAmount('0.00');
     }
   };
 
-
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(productDesc);
-    console.log(selectedOption);
+    if (productDesc && selectedOption && amount !== '0.00') {
+      const newItem = {
+        id: Date.now(),
+        description: productDesc,
+        category: selectedOption,
+        sum: amount,
+        time: moment().format('DD-MM-YYYY'),
+      };
+      onAddTransaction(newItem);
+    }
   };
 
   return (
@@ -103,17 +103,16 @@ export const FormTransaction = () => {
         <CalculatorContainer>
           {/* <CalculatorText>00:00</CalculatorText> */}
           <input
-      type="text"
-      value={amount}
-      onChange={handleInputChange}
-      placeholder="Enter amount (0.00 - 100000.00)"
-      onKeyDown={(e) => {
-        // Відмінити дію стрілок верх/вниз
-        if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-          e.preventDefault();
-        }
-      }}
-    />
+            type="text"
+            value={amount}
+            onChange={handleInputChange}
+            placeholder="Enter amount (0.00 - 100000.00)"
+            onKeyDown={e => {
+              if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                e.preventDefault();
+              }
+            }}
+          />
           <img src={calculator} alt="calculator" />
         </CalculatorContainer>
       </TableSearch>
