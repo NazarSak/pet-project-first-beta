@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/pet-project-first-beta/static/css/main.469c8bff.css",
-    "main.js": "/pet-project-first-beta/static/js/main.1bf2c5fa.js",
+    "main.js": "/pet-project-first-beta/static/js/main.47877ea6.js",
     "static/media/01-home.png": "/pet-project-first-beta/static/media/01-home.f4a045bb14c8ebf3e3b6.png",
     "static/media/wallet.png": "/pet-project-first-beta/static/media/wallet.7bf49d1f394bf4998976.png",
+    "static/media/emptyWallet.png": "/pet-project-first-beta/static/media/emptyWallet.2a7e1a93dfff6bfded9f.png",
     "static/media/google.svg": "/pet-project-first-beta/static/media/google.4747ef370a31326a7e30d1a743930284.svg",
     "static/media/calculator.svg": "/pet-project-first-beta/static/media/calculator.83cd44cd3ef8d02fbf9c43c6a3f8392f.svg",
     "static/media/calendar.svg": "/pet-project-first-beta/static/media/calendar.a5e666eddd53092d75f66979936ae4dc.svg",
@@ -11,10 +12,10 @@
     "static/media/close.svg": "/pet-project-first-beta/static/media/close.0810fd37c2162696f6a1c3c2b99e45d9.svg",
     "static/media/reports.svg": "/pet-project-first-beta/static/media/reports.68e03afe713740f7b7e7c5db20717faa.svg",
     "main.469c8bff.css.map": "/pet-project-first-beta/static/css/main.469c8bff.css.map",
-    "main.1bf2c5fa.js.map": "/pet-project-first-beta/static/js/main.1bf2c5fa.js.map"
+    "main.47877ea6.js.map": "/pet-project-first-beta/static/js/main.47877ea6.js.map"
   },
   "entrypoints": [
     "static/css/main.469c8bff.css",
-    "static/js/main.1bf2c5fa.js"
+    "static/js/main.47877ea6.js"
   ]
 }
