@@ -10,7 +10,7 @@ import {
   Select,
   OptionItem,
   CalculatorContainer,
-  // CalculatorText,
+  InputCalculator,
   ButtonContainer,
   ButtonInput,
   ButtonClear,
@@ -101,8 +101,7 @@ export const FormTransaction = ({ onAddTransaction }) => {
           </Select>
         </SelectCategory>
         <CalculatorContainer>
-          {/* <CalculatorText>00:00</CalculatorText> */}
-          <input
+          <InputCalculator
             type="text"
             value={amount}
             onChange={handleInputChange}

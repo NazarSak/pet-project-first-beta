@@ -17,7 +17,7 @@ export const Container = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
 `;
 
 export const StyledForm = styled.form`
