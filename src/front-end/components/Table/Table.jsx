@@ -12,7 +12,7 @@ import {
 import { TableArray } from '../tableArray/TableArray';
 import emptyWallet from '../../../assets/svgImage/emptyWallet.png';
 
-export const Table = ({ data }) => {
+export const Table = ({ data,handleDelete }) => {
   return (
     <div>
       <TableHeader>
@@ -28,7 +28,7 @@ export const Table = ({ data }) => {
         </ContainerMessage>
       ) : (
         <TableColumnContainer>
-          <TableArray data={data} />
+          <TableArray data={data} handleDelete={handleDelete}/>
         </TableColumnContainer>
       )}
     </div>
