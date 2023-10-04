@@ -72,7 +72,14 @@ export const FormTransaction = ({ onAddTransaction }) => {
         time: moment().format('DD-MM-YYYY'),
       };
       onAddTransaction(newItem);
+      handleClear();
     }
+  };
+
+  const handleClear = () => {
+    setAmount('0.00');
+    setProductDesc('');
+    setSelectedOption('');
   };
 
   return (
@@ -118,7 +125,7 @@ export const FormTransaction = ({ onAddTransaction }) => {
       </TableSearch>
       <ButtonContainer>
         <ButtonInput>Input</ButtonInput>
-        <ButtonClear>Clear</ButtonClear>
+        <ButtonClear onClick={handleClear}>Clear</ButtonClear>
       </ButtonContainer>
     </TableSearchContainer>
   );

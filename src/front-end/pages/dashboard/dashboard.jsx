@@ -20,6 +20,11 @@ const Dashboard = () => {
     setData((prevData) => [...prevData, newItem]);
   };
 
+  const deleteElement = (id) => {
+    // Використовуємо setElements для оновлення стану
+    setData((prevElements) => prevElements.filter((element) => element.id !== id));
+  };
+
 console.log(data);
 
   return (
@@ -37,7 +42,7 @@ console.log(data);
       </ButContainer>
       <TableContainer>
         <FormTransaction onAddTransaction={handleAddTransaction}/>
-        <Table data={data}/>
+        <Table data={data} handleDelete={deleteElement}/>
       </TableContainer>
     </Container>
   );
