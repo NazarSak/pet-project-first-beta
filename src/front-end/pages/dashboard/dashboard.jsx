@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Container } from '../LogIn/login.styled';
 import {
@@ -16,19 +16,29 @@ import { Table } from 'front-end/components/Table/Table';
 const Dashboard = () => {
   const [data, setData] = useState([]);
 
-  const handleAddTransaction = (newItem) => {
-    setData((prevData) => [...prevData, newItem]);
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem('data')) || [];
+    setData(storedData);
+  }, []);
+
+  const handleAdd = newItem => {
+    setData(prevData => {
+      const allData = [...prevData, newItem];
+      localStorage.setItem('data', JSON.stringify(allData));
+      return allData;
+    });
   };
 
-  const deleteElement = (id) => {
-    // Використовуємо setElements для оновлення стану
-    setData((prevElements) => prevElements.filter((element) => element.id !== id));
+  const deleteElement = id => {
+    setData(prevElements => {
+      const updatedData = prevElements.filter(element => element.id !== id);
+      localStorage.setItem('data', JSON.stringify(updatedData));
+      return updatedData;
+    });
   };
-
-console.log(data);
 
   return (
-    <Container style={{ height: '100%', alignItems: 'unset'}}>
+    <Container style={{ height: '100%', alignItems: 'unset' }}>
       <ButContainer>
         <Title style={{ marginRight: 20 }}>Balance:</Title>
         <UnderHeaderButton style={{ marginRight: 16 }}>
@@ -41,8 +51,8 @@ console.log(data);
         </ReportsContainer>
       </ButContainer>
       <TableContainer>
-        <FormTransaction onAddTransaction={handleAddTransaction}/>
-        <Table data={data} handleDelete={deleteElement}/>
+        <FormTransaction onAddTransaction={handleAdd} />
+        <Table data={data} handleDelete={deleteElement} />
       </TableContainer>
     </Container>
   );

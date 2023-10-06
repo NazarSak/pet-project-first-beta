@@ -18,6 +18,7 @@ import {
 import calendar from '../../../assets/svgImage/calendar.svg';
 import calculator from '../../../assets/svgImage/calculator.svg';
 import { Options } from '../Arrays/Options';
+import { showToast } from '../helpers/Toaster';
 
 export const FormTransaction = ({ onAddTransaction }) => {
   const [currentDate, setCurrentDate] = useState(
@@ -71,8 +72,11 @@ export const FormTransaction = ({ onAddTransaction }) => {
         sum: amount,
         time: moment().format('DD-MM-YYYY'),
       };
+
       onAddTransaction(newItem);
       handleClear();
+    } else {
+      showToast('All fields must be filled', 'warning');
     }
   };
 
