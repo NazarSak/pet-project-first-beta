@@ -28,7 +28,7 @@ const Dashboard = () => {
 console.log(data);
 
   return (
-    <Container style={{ height: '100%' }}>
+    <Container style={{ height: '100%', alignItems: 'unset'}}>
       <ButContainer>
         <Title style={{ marginRight: 20 }}>Balance:</Title>
         <UnderHeaderButton style={{ marginRight: 16 }}>

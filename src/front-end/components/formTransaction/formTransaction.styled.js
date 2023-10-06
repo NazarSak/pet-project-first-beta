@@ -67,8 +67,12 @@ export const CalculatorContainer = styled.div`
   gap: 12px;
 `;
 
-export const CalculatorText = styled.p`
-  margin-left: 42px;
+export const InputCalculator = styled.input`
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 24px;
+  margin-left: 24px;
   color: var(--White-2, #c7ccdc);
   text-align: center;
   font-family: Roboto;
