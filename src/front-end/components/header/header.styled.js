@@ -8,6 +8,7 @@ export const Conatiner = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 8px 0 8px 40px;
+   z-index: 1000; 
 `;
 
 export const Logo = styled.h3`
@@ -30,4 +31,5 @@ export const SpinerContainer = styled.div`
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
+  z-index: 1000;
 `;
