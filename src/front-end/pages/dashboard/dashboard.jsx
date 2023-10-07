@@ -15,11 +15,17 @@ import { Table } from 'front-end/components/Table/Table';
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
+  const [balance,setBalance] = useState(50.00)
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('data')) || [];
     setData(storedData);
   }, []);
+
+  const handleTransaction = (amount) => {
+    const newBalance = (parseFloat(balance) - amount).toFixed(2);
+    setBalance(newBalance);
+  };
 
   const handleAdd = newItem => {
     setData(prevData => {
@@ -42,7 +48,7 @@ const Dashboard = () => {
       <ButContainer>
         <Title style={{ marginRight: 20 }}>Balance:</Title>
         <UnderHeaderButton style={{ marginRight: 16 }}>
-          00.00 UAH
+          {balance} UAH
         </UnderHeaderButton>
         <UnderHeaderButton>Confirm</UnderHeaderButton>
         <ReportsContainer>
@@ -50,9 +56,10 @@ const Dashboard = () => {
           <img src={reports} alt="reportsSvg" />
         </ReportsContainer>
       </ButContainer>
+
       <TableContainer>
-        <FormTransaction onAddTransaction={handleAdd} />
-        <Table data={data} handleDelete={deleteElement} />
+        <FormTransaction onAddTransaction={handleAdd} handleTransaction={handleTransaction} balance={balance}/>
+        <Table data={data} handleDelete={deleteElement}/>
       </TableContainer>
     </Container>
   );

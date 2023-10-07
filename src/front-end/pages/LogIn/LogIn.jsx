@@ -5,7 +5,6 @@ import { validAccounts } from 'front-end/components/Arrays/UserList';
 import { loginAsync } from 'front-end/redux/auth.js/actionCreator';
 import { isAutorized, logout } from 'front-end/redux/auth.js/authSlice';
 import { showToast } from 'front-end/components/helpers/Toaster';
-import { SpinerContainer } from 'front-end/components/header/header.styled';
 import { Spiner } from 'front-end/components/helpers/spiner';
 import { Form } from 'front-end/components/form/Form';
 import { Container, Wrapper } from './login.styled';
@@ -31,7 +30,6 @@ export const Login = () => {
       if (isValidAccount) {
         dispatch(loginAsync({ username, password }));
         dispatch(isAutorized(username));
-
         navigate('/dashboard');
         showToast(
           "Hello! To get started, enter the current balance of your account! You can't spend money until you have it :)"
@@ -60,7 +58,7 @@ export const Login = () => {
         <img src={wallet} alt="Wallet" width="675" height="545" />
       </Wrapper>
       <Form handleKeyDown={handleKeyDown} handleLogin={handleLogin} />
-      <SpinerContainer>{isLoading && <Spiner />}</SpinerContainer>
+        {isLoading && <Spiner />}
     </Container>
   );
 };

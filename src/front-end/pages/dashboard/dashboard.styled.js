@@ -7,7 +7,7 @@ export const ButContainer = styled.div`
   margin-top: 40px;
 `;
 
-export const UnderHeaderButton = styled.button`
+export const UnderHeaderButton = styled.div`
   border-radius: 16px;
   font-size: 12px;
   font-weight: 700;

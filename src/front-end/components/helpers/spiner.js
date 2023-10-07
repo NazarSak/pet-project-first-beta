@@ -1,8 +1,9 @@
 import { FidgetSpinner } from 'react-loader-spinner';
+import { SpinerContainer } from '../header/header.styled';
 
 export const Spiner = () => {
   return (
-    <>
+    <SpinerContainer>
       <FidgetSpinner
         visible={true}
         height="80"
@@ -13,6 +14,6 @@ export const Spiner = () => {
         ballColors={['#ff0000', '#00ff00', '#0000ff']}
         backgroundColor="#F4442E"
       />
-    </>
+    </SpinerContainer>
   );
 };

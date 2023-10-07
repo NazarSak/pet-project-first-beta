@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import moment from 'moment-timezone';
 import {
   CalendarText,
@@ -19,14 +19,20 @@ import calendar from '../../../assets/svgImage/calendar.svg';
 import calculator from '../../../assets/svgImage/calculator.svg';
 import { Options } from '../Arrays/Options';
 import { showToast } from '../helpers/Toaster';
+import { Spiner } from '../helpers/spiner';
 
-export const FormTransaction = ({ onAddTransaction }) => {
+export const FormTransaction = ({
+  onAddTransaction,
+  handleTransaction,
+  balance,
+}) => {
   const [currentDate, setCurrentDate] = useState(
     moment().tz('Europe/Kiev').format('DD-MM-YYYY')
   );
   const [selectedOption, setSelectedOption] = useState('');
   const [productDesc, setProductDesc] = useState('');
   const [amount, setAmount] = useState('0.00');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const updateDate = () => {
@@ -64,20 +70,30 @@ export const FormTransaction = ({ onAddTransaction }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (productDesc && selectedOption && amount !== '0.00') {
-      const newItem = {
-        id: Date.now(),
-        description: productDesc,
-        category: selectedOption,
-        sum: amount,
-        time: moment().format('DD-MM-YYYY'),
-      };
+    setIsLoading(true);
+    setTimeout(() => {
 
-      onAddTransaction(newItem);
-      handleClear();
-    } else {
-      showToast('All fields must be filled', 'warning');
-    }
+      if (productDesc && selectedOption && amount !== '0.00') {
+        const newItem = {
+          id: Date.now(),
+          description: productDesc,
+          category: selectedOption,
+          sum: amount,
+          time: moment().format('DD-MM-YYYY'),
+        };
+
+        if (balance - amount < 0) {
+          showToast("You don't have enough money");
+        } else {
+          onAddTransaction(newItem);
+          handleTransaction(amount);
+          handleClear();
+        }
+      } else {
+        showToast('All fields must be filled', 'warning');
+      }
+      setIsLoading(false);
+    }, 800);
   };
 
   const handleClear = () => {
@@ -130,6 +146,7 @@ export const FormTransaction = ({ onAddTransaction }) => {
         <ButtonInput>Input</ButtonInput>
         <ButtonClear onClick={handleClear}>Clear</ButtonClear>
       </ButtonContainer>
+      {isLoading && <Spiner />}
     </TableSearchContainer>
   );
 };
