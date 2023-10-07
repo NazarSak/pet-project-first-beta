@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pet-project-first-beta/static/css/main.469c8bff.css",
-    "main.js": "/pet-project-first-beta/static/js/main.64c0e231.js",
+    "main.js": "/pet-project-first-beta/static/js/main.623a3ea3.js",
     "static/media/01-home.png": "/pet-project-first-beta/static/media/01-home.f4a045bb14c8ebf3e3b6.png",
     "static/media/wallet.png": "/pet-project-first-beta/static/media/wallet.7bf49d1f394bf4998976.png",
     "static/media/emptyWallet.png": "/pet-project-first-beta/static/media/emptyWallet.2a7e1a93dfff6bfded9f.png",
@@ -13,10 +13,10 @@
     "static/media/close.svg": "/pet-project-first-beta/static/media/close.0810fd37c2162696f6a1c3c2b99e45d9.svg",
     "static/media/reports.svg": "/pet-project-first-beta/static/media/reports.68e03afe713740f7b7e7c5db20717faa.svg",
     "main.469c8bff.css.map": "/pet-project-first-beta/static/css/main.469c8bff.css.map",
-    "main.64c0e231.js.map": "/pet-project-first-beta/static/js/main.64c0e231.js.map"
+    "main.623a3ea3.js.map": "/pet-project-first-beta/static/js/main.623a3ea3.js.map"
   },
   "entrypoints": [
     "static/css/main.469c8bff.css",
-    "static/js/main.64c0e231.js"
+    "static/js/main.623a3ea3.js"
   ]
 }
